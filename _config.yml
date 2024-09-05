@@ -1,0 +1,20 @@
+collections:
+  maps:
+    output: true
+    permalink: /maps/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "maps"
+    values:
+      layout: "map"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+    values:
+      layout: "default"

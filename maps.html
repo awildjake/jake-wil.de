@@ -1,0 +1,13 @@
+---
+layout: default
+title: Maps
+---
+<h1>Maps</h1>
+
+<ul>
+  {% for map in site.maps %}
+    <li>
+      <a href="{{ map.url }}">{{ map.title }}</a> - {{ map.date | date: "%B %d, %Y" }}
+    </li>
+  {% endfor %}
+</ul>
