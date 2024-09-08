@@ -1,0 +1,70 @@
+---
+title: Demo Leaflet
+date: 2024-09-07
+---
+<script>
+    var map = L.map('map').setView([37.322729, -121.915732], 13);
+    var completedLayer = L.layerGroup([]);
+    var approvedLayer = L.layerGroup([]);
+    var constructionLayer = L.layerGroup([]);
+    var withdrawnLayer = L.layerGroup([]);
+    var underReviewLayer = L.layerGroup([]);
+
+    var overlayMaps = {
+        "Approved": approvedLayer,
+        "Completed": completedLayer,
+        "Construction": constructionLayer,
+        "Withdrawn": withdrawnLayer,
+        "Under Review": underReviewLayer,
+    };
+
+    var layerControl = L.control.layers(null, overlayMaps, {collapsed:false, position:'topright'}).addTo(map);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    {% for item in site.data.projects.features %}
+        {% if item.properties.Phase == 'Completed'%}
+            marker = L.marker([{{item.geometry.coordinates.[1]}}, {{item.geometry.coordinates.[0]}}]).addTo(completedLayer);
+        {% elsif item.properties.Phase == 'Approved'%}
+            marker = L.marker([{{item.geometry.coordinates.[1]}}, {{item.geometry.coordinates.[0]}}]).addTo(approvedLayer);
+        {% elsif item.properties.Phase == 'Construction'%}
+            marker = L.marker([{{item.geometry.coordinates.[1]}}, {{item.geometry.coordinates.[0]}}]).addTo(constructionLayer);
+        {% elsif item.properties.Phase == 'Withdrawn'%}
+            marker = L.marker([{{item.geometry.coordinates.[1]}}, {{item.geometry.coordinates.[0]}}]).addTo(withdrawnLayer);
+        {% elsif item.properties.Phase == 'In Design'%}
+            marker = L.marker([{{item.geometry.coordinates.[1]}}, {{item.geometry.coordinates.[0]}}]).addTo(underReviewLayer);
+        {% endif %}
+        marker.bindPopup("{{item.properties.Project_Name}}, {{item.properties.Phase}}");
+    {% endfor %}
+
+    function getColor(d) {
+        return d == 'Under Review' ? '#66a61e' :
+            d == 'Approved'  ? '#1b9e77' :
+            d == 'Completed'  ? '#d95f02' :
+            d == 'Construction'  ? '#7570b3' :
+            d == 'Withdrawn'   ? '#777' :
+                        '#555';
+    }
+
+    var legend = L.control({ position: 'bottomright'});
+
+    legend.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'info legend'),
+            labels = ['Approved', 'Completed', 'Construction', 'Withdrawn', 'Under Review'];
+            title = ['<h4><b>Project Status</b><h4>'];
+        
+        div.innerHTML = title.join('<br>');
+        for (var i = 0; i < labels.length; i++) {
+            div.innerHTML += 
+            '<p><i style="background:' + getColor(labels[i]) + '"></i> '+ labels[i] + '</p>';
+        }
+        
+        
+        return div;
+    }
+
+    legend.addTo(map);
+</script>

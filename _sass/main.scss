@@ -18,7 +18,7 @@
 }
 
 body {
-  font-family: century_supra_a, Georgia, serif;
+  font-family: 'Libre Baskerville';
   color: #000000;
   background-color: #ffffff;
   max-width: 1000px;
@@ -192,20 +192,6 @@ h2 {
 .post a{
   text-decoration: none;
   font-size: 24px;
-}
-
-title-block, aside {
-    display: block;
-    float: left;
-    position: absolute;
-    margin-left: 0;
-    left: 12rem;
-    width: calc(2.5rem* 3);
-    text-align: right;
-    list-style-type: none;
-    clear: both;
-    margin-bottom: 1rem;
-    font-variant-numeric: normal;
 }
 
 .post-header {

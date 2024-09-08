@@ -1,13 +1,35 @@
----
-layout: default
----
-<div class="post-header">
-  <h1 class="post-title">{{ page.title }}</h1>
-  <div id="date"><em>{{ page.date | date: "%-d %B %Y"}}</em></div>
-</div>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
 
-<p>
-  {% assign author = site.authors | where: 'short_name', page.author | first %}
-</p>
+    <!--Stylesheet for maps-->
+    <link rel="stylesheet" href="/assets/css/map_styles.css">
 
-{{ content }}
+    <!--Google Fonts JetBrains-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+
+    <!--Google Fonts Libre Baskerville-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!--Leaflet CSS-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+
+    <!--Leaflet JS-->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+
+  </head>
+  <body>
+    <div id="map"></div>
+    {{ content }}
+  </body>
+</html>
