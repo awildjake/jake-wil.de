@@ -7,6 +7,8 @@ collections:
   maps:
     output: true
     permalink: /maps/:name/
+  developments:
+    output: true
 
 defaults:
   - scope:
@@ -23,12 +25,16 @@ defaults:
       path: ""
     values:
       layout: "default"
+  - scope:
+      path: ""
+    values:
+      layout: ""
 
-page_gen-dirs: true # uncomment, if you prefer to generate named folders
+# page_gen-dirs: true # uncomment, if you prefer to generate named folders
 
-page_gen:
-  - data: 'projects.features'
-    template: 'development_project'
-    name: 'id'
-    name_expr: record['properties']['Project_Name']
-    dir: 'developments'
+#page_gen:
+#  - data: 'projects.features'
+#    template: 'development_project'
+#    name: 'id'
+#    name_expr: record['properties']['Project_Name']
+#    dir: 'developments'

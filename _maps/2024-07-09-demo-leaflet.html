@@ -125,8 +125,8 @@ date: 2024-09-07
 
         marker.on('mouseover', function() { this.openPopup() });
         marker.on('mouseout', function() { this.closePopup(); });
-        //marker.on('click', function() { open('http://127.0.0.1:4000/developments/{{ mylink | join: "-" }}/', '_self'); });
-        marker.on('click', function() { open('jake-wil.de/developments/{{ mylink | join: "-" }}/', '_self'); });
+        marker.on('click', function() { open('http://127.0.0.1:4000/developments/{{ mylink | join: "-" }}/', '_blank'); });
+        //marker.on('click', function() { open('jake-wil.de/developments/{{ mylink | join: "-" }}/', '_blank'); });
     {% endfor %}
 
     function getColor(d) {
