@@ -1,3 +1,8 @@
+plugins:
+  - jekyll-datapage-generator
+
+
+
 collections:
   maps:
     output: true
@@ -18,3 +23,12 @@ defaults:
       path: ""
     values:
       layout: "default"
+
+page_gen-dirs: true # uncomment, if you prefer to generate named folders
+
+page_gen:
+  - data: 'projects.features'
+    template: 'development_project'
+    name: 'id'
+    name_expr: record['properties']['Project_Name']
+    dir: 'developments'

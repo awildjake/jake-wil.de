@@ -19,7 +19,8 @@
         "Catalyze SV's Letter": "N/A",
         "Phase": "Completed",
         "Owner_Developer": "Charities Housing",
-        "Current Status With City": "Completed"
+        "Current Status With City": "Completed",
+        "APNs": ["249-01-063", "249-01-040"]
       },
       "geometry": {
         "coordinates": [

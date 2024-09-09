@@ -1,0 +1,11 @@
+<header class="site-header">
+    <div class="nav-wrapper" style="justify-content: center;">
+        <nav>
+            <ul style="justify-content: center;">
+                {% for item in site.data.developments_navigation %}
+                <a href="{{ item.link }}" {% if page.url == item.link %}class="current"{% else %}class="non-current"{% endif %}>{{ item.name }}</a>
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
+</header>
