@@ -9,6 +9,7 @@ collections:
     permalink: /maps/:name/
   developments:
     output: true
+    permalink: /developments/:name/
 
 defaults:
   - scope:
@@ -27,8 +28,9 @@ defaults:
       layout: "default"
   - scope:
       path: ""
+      type: "developments"
     values:
-      layout: ""
+      layout: "development_project"
 
 # page_gen-dirs: true # uncomment, if you prefer to generate named folders
 

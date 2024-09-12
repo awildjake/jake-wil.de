@@ -107,25 +107,25 @@ date: 2024-09-07
         shadowSize: [41, 41]
     });
 
-    {% for item in site.data.projects.features %}
-        {% if item.properties.Phase == 'Completed'%}
-            marker = L.marker([{{item.geometry.coordinates.[1]}}, {{item.geometry.coordinates.[0]}}], {icon: greenIcon}).addTo(completedLayer);
-        {% elsif item.properties.Phase == 'Approved'%}
-            marker = L.marker([{{item.geometry.coordinates.[1]}}, {{item.geometry.coordinates.[0]}}], {icon: blueIcon}).addTo(approvedLayer);
-        {% elsif item.properties.Phase == 'Construction'%}
-            marker = L.marker([{{item.geometry.coordinates.[1]}}, {{item.geometry.coordinates.[0]}}], {icon: orangeIcon}).addTo(constructionLayer);
-        {% elsif item.properties.Phase == 'Withdrawn'%}
-            marker = L.marker([{{item.geometry.coordinates.[1]}}, {{item.geometry.coordinates.[0]}}], {icon: greyIcon}).addTo(withdrawnLayer);
-        {% elsif item.properties.Phase == 'In Design'%}
-            marker = L.marker([{{item.geometry.coordinates.[1]}}, {{item.geometry.coordinates.[0]}}], {icon: yellowIcon}).addTo(underReviewLayer);
+    {% for item in site.developments %}
+        {% if item.phase == 'Completed'%}
+            marker = L.marker([{{item.geometry.[1]}}, {{item.geometry.[0]}}], {icon: greenIcon}).addTo(completedLayer);
+        {% elsif item.phase == 'Approved'%}
+        marker = L.marker([{{item.geometry.[1]}}, {{item.geometry.[0]}}], {icon: blueIcon}).addTo(approvedLayer);
+        {% elsif item.phase == 'Construction'%}
+        marker = L.marker([{{item.geometry.[1]}}, {{item.geometry.[0]}}], {icon: orangeIcon}).addTo(constructionLayer);
+        {% elsif item.phase == 'Withdrawn'%}
+        marker = L.marker([{{item.geometry.[1]}}, {{item.geometry.[0]}}], {icon: greyIcon}).addTo(withdrawnLayer);
+        {% elsif item.phase == 'Under Review'%}
+        marker = L.marker([{{item.geometry.[1]}}, {{item.geometry.[0]}}], {icon: yellowIcon}).addTo(underReviewLayer);
         {% endif %}
-        marker.bindPopup("<h4>{{item.properties.Project_Name}}</h4> {{item.properties.Address}}");
+        marker.bindPopup("<h4>{{item.title}}</h4> {{item.address}}");
 
-        {% assign mylink = item.properties.Project_Name | split: " " %}
+
 
         marker.on('mouseover', function() { this.openPopup() });
         marker.on('mouseout', function() { this.closePopup(); });
-        marker.on('click', function() { open('http://127.0.0.1:4000/developments/{{ mylink | join: "-" }}/', '_blank'); });
+        marker.on('click', function() { open('{{item.url}}', '_self'); });
         //marker.on('click', function() { open('jake-wil.de/developments/{{ mylink | join: "-" }}/', '_blank'); });
     {% endfor %}
 

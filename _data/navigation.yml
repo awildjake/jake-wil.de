@@ -1,7 +1,7 @@
 - name: HOME
   link: /
-- name: ABOUT
-  link: /about.html
+- name: PROJECTS
+  link: /projects.html
 - name: BLOG
   link: /blog.html
 - name: MAPS

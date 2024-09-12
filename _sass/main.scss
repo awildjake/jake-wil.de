@@ -150,10 +150,9 @@ a:hover {
 }
 
 h2 {
-  border-width: 0.1rem 0;
-  padding: 0.1rem 1rem;
-  margin-top: 0;
+
 }
+
 
 .post {
   flex: 1;
@@ -215,14 +214,20 @@ ol li{
 .development-head-map-box {
   flex-grow: 1;
   border: solid #454138;
-  border-width: 0.1rem 0.1rem;
+  border-width: 0.2rem;
   width: 100%;
 
 }
 
+#phase {
+  font-weight: bold;
+}
+
+
 .development-head-title-box {
   flex-grow: 4;
   width: 100%;
+  margin-bottom: 1em;
 }
 
 #map-box-head {
@@ -232,7 +237,6 @@ ol li{
 
 .development-project-table {
   border: none;
-
   width: 100%;
 }
 
