@@ -4,11 +4,15 @@ title: Developments
 ---
 <h1>Developments</h1>
 
-<ul>
-  <li>Test</li>
-  {% for development in site.developments %}
-  <li>
-    <a href="{{ development.url }}">{{ development.title}}</a>
-  </li>
-{% endfor %}
-</ul>
+{% assign developments_by_units = site.developments | sort: "units" %}
+
+<table>
+  <th>Units</th>
+  <th>Development</th>
+  {% for development in developments_by_units %}
+  <tr>
+    <td>{{ development.units }}</td>
+    <td><a href="{{ development.url }}">{{ development.title}}</a></td>
+  </tr>
+  {% endfor %}
+</table>

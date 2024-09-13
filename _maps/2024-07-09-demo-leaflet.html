@@ -1,9 +1,10 @@
 ---
-title: Demo Leaflet
+title: Development Projects Tracker
 date: 2024-09-07
 ---
 <script>
     var map = L.map('map').setView([37.322729, -121.915732], 13);
+    map.addControl(new L.Control.Fullscreen());
     var completedLayer = L.layerGroup([]);
     var approvedLayer = L.layerGroup([]);
     var constructionLayer = L.layerGroup([]);

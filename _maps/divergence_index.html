@@ -1,0 +1,79 @@
+---
+layout: map
+title: Divergence Index
+date: 2024-09-07
+---
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"
+integrity="sha512-Abr21JO2YqcJ03XGZRPuZSWKBhJpUAR6+2wH5zBeO4wAw4oksr8PRdF+BKIRsxvCdq+Mv4670rZ+dLnIyabbGw=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    var map = L.map('map').setView([37.322729, -121.915732], 13);
+    var geojsonLayer = new L.GeoJSON.AJAX('/assets/data/divergence_index.geojson', {style: style,  onEachFeature:onEachFeature,}).addTo(map);
+    map.addControl(new L.Control.Fullscreen());
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    function getColor(d) {
+        return d <= 0.121184 ? '#EFF3FF' :
+            d <= 0.258621  ? '#BDD7E7' :
+            d <= 0.396058  ? '#6BAED6' :
+            d <= 0.533495  ? '#3182BD' :
+                     '#08519C' ;
+    }
+
+    function style(feature) {
+        return {
+            fillColor: getColor(feature.properties.divergence),
+            weight: 2,
+            opacity: 1,
+            color: 'grey',
+            fillOpacity: 0.7
+        };
+    }
+
+    function onEachFeature(feature, layer) {
+        if (feature.properties && feature.properties.divergence) {
+            layer.bindPopup("<p>Divergence:</p><p>" + feature.properties.divergence + " </p>" +
+                "<table><tr><td>Race</td><td>Pop.</td></tr>" +
+                "<tr><td><b>Hispanic: </b></td><td>"+ feature.properties.Hispanic +"</td></tr>" +
+                "<tr><td><b>White: </b></td><td>"+ feature.properties.White +"</td></tr>" +
+                "<tr><td><b>Black: </b></td><td>"+ feature.properties.Black +"</td></tr>" +
+                "<tr><td><b>Asian: </b></td><td>"+ feature.properties.Asian +"</td></tr>" +
+                "<tr><td><b>Native: </b></td><td>"+ feature.properties.Native +"</td></tr>" +
+                "<tr><td><b>Islander: </b></td><td>"+ feature.properties.Islander +"</td></tr>" +
+                "<tr><td><b>Other: </b></td><td>"+ feature.properties.Other +"</td></tr>" +
+                "<tr><td><b>Mixed: </b></td><td>"+ feature.properties.Mixed +"</td></tr>" + "</table>", 
+                { maxWidth : 700, closeButton: false});
+            layer.on('click', function() { layer.openPopup(); });
+
+
+        }
+    }
+    var legend = L.control({ position: 'bottomright'});
+
+    legend.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'info legend'),
+            grades = [0.121184, 0.258621, 0.396058, 0.533495, 0.895299],
+            labels = ['< -0.50 Std. Dev.', '-0.50 - 0.50 Std. Dev.', '0.50 - 1.5 Std. Dev.', '1.5 - 2.5 Std. Dev.', ' > 2.5 Std. Dev.'];
+            title = ['<h4><b>Standard Deviation</b><h4>'];
+        
+        div.innerHTML = title.join('<br>');
+        div.innerHTML +=
+            '<i style="background: #EFF3FF;"></i> < -0.50 Std. Dev. <br>' +
+            '<i style="background: #BDD7E7;"></i> -0.50 - 0.50 Std. Dev. <br>' +
+            '<i style="background: #6BAED6;"></i> 0.50 - 1.5 Std. Dev. <br>' +
+            '<i style="background: #3182BD;"></i> 1.5 - 2.5 Std. Dev. <br>' +
+            '<i style="background: #08519C;"></i> > 2.5 Std. Dev. <br>' ;
+        
+        
+        return div;
+    }
+    
+    legend.addTo(map);
+
+</script>

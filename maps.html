@@ -4,10 +4,11 @@ title: Maps
 ---
 <h1>Maps</h1>
 
-<ul>
+<ul class="post-list">
   {% for map in site.maps %}
-    <li>
-      <a href="{{ map.url }}">{{ map.title }}</a> - {{ map.date | date: "%B %d, %Y" }}
-    </li>
-  {% endfor %}
+        <li class="post">
+            <b><a href="{{ map.url }}">{{ map.title }}</a></b>
+            <div class="post-info">» {{ map.date | date: "%-d %B %Y"}}</div>
+        </li>
+    {% endfor %}
 </ul>
