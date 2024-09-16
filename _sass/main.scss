@@ -46,6 +46,10 @@ video {
   display: block;
 }
 
+a {
+  overflow-wrap: break-word;
+}
+
 /* Nav bar and header*/
 
 .site-header {
