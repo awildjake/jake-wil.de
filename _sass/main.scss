@@ -48,6 +48,12 @@ video {
 
 a {
   overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+address {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 /* Nav bar and header*/
@@ -58,7 +64,7 @@ a {
   justify-content: center;
   align-items: center;
   /* top | right | bottom | left */
-  margin: 1rem 1rem 3rem 1rem;
+  margin: 1rem 1rem 1.5rem 1rem;
   order: 1;
 }
 
@@ -97,6 +103,24 @@ a {
 
 .site-nav a {
   text-decoration: none;
+  flex-wrap: wrap;
+}
+
+.site-nav ul li {
+  display: flex;
+  text-decoration: none;
+  flex-wrap: wrap;
+}
+
+.nav-wrapper ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 .current {
@@ -126,7 +150,7 @@ a {
   background-color: #f1f1f1;
 }
 
-.content {
+/* .content {
   display: flex;
   flex-direction: column;
   flex: 1 0 auto;
@@ -134,18 +158,49 @@ a {
   margin-left: auto;
   margin-right: auto;
   order: 2;
+} */
+
+.content {
+  --gap: clamp(1rem, 6vw, 3rem);
+  --full: minmax(var(--gap), 1fr);
+  --content: min(50ch, 100% - var(--gap) * 2);
+  --popout: minmax(0, 2rem);
+  --feature: minmax(0, 5rem);
+  order: 2;
+  display: grid;
+  grid-template-columns:
+    [full-start] var(--full)
+    [feature-start] var(--feature)
+    [popout-start] var(--popout)
+    [content-start] var(--content) [content-end]
+    var(--popout) [popout-end]
+    var(--feature) [feature-end]
+    var(--full) [full-end];
 }
 
-.main-article {
-  display: flex;
-  flex-direction: column;
+.content > * {
+  grid-column: content;
 }
+
+.popout {
+  grid-column: popout;
+}
+
+.feature {
+  grid-column: feature;
+}
+
+.full {
+  grid-column: full;
+}
+
 
 footer {
   background-color: #d1cdb7;
   color: #fff;
   padding: 1.5rem;
   order: 3;
+  margin-top: auto;
   -webkit-background-size: 0.3rem 0.3rem;
   -moz-background-size: 0.3rem 0.3rem;
   background-size: 0.3rem 0.3rem;
@@ -185,15 +240,7 @@ footer {
   align-self: flex-start;
 }
 
-.nav-wrapper ul {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
+
 
 .home-main {
   display: flex;
@@ -225,6 +272,10 @@ a:hover {
   text-decoration: none;
   color: #fffff5;
   background-color: #454138;
+}
+
+h1 {
+  height: auto;
 }
 
 .post {
