@@ -1,6 +1,8 @@
 ---
 title: URBP 200 Week 5 Readings
 date: 2024-09-17
+tags:
+    - urbp200
 ---
 Urban modernization became more directed and comprehensive by the 1930s, including housing standards, planning for mechanized traffic, and urban redevelopment. Unfortunately it also ran afoul of institutional racism.
 1. “The City of Towers: The Corbusian Radiant City: Paris, Chandigarh, Brasilia, London, St Louis, 1920 – 1970.” In _Cities of Tomorrow: An Intellectual History of Urban Planning and Design since 1880_, 4th ed., 204–40. New York: Wiley, 2014.

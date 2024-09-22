@@ -1,7 +1,8 @@
 ---
 date: 2024-08-22
 title: URBP 200 Week 3 Readings
-author: ted
+tags:
+    - urbp200
 ---
 This week is an overview of urban form and politics during the end of the 19th century.
 

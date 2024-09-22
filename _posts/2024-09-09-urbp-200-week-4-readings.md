@@ -1,6 +1,8 @@
 ---
 date: 2024-09-09
 title: URBP 200 Week 4 Readings
+tags:
+    - urbp200
 ---
 Risk-intervention in middle class mortgages; homeownership as household savings policy; denial of credit to Black Americans; public housing as doomed policy from the start.
 

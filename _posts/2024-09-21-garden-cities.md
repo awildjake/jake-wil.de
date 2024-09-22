@@ -1,6 +1,9 @@
 ---
 title: Garden Cities
 date: 2024-09-21
+tags:
+    - urban-planning
+    - theory
 ---
 In 1898, Ebenezer Howard published _To-Morrow: A Peaceful Path to Real Reform_,
 a book that he would later reprint in 1902 under the much more recognizable name of _Garden Cities of To-Morrow_.
@@ -15,3 +18,5 @@ This brief excerpt from Ebenezer Howard's Garden Cities of To-Morrow provides a 
 3. A third worse point actually
 
 The purpose of Howard's plan is to sustain "a healthy, natural, and economic combination of town and country life" through a balance of work and leisure (p. 51). In this goal, Howard reflects the ideal in American public life to establish a harmonious relationship between the machine and garden. Technology, hardly a foe to civilization in Howard's view, is essential to healthy public life: "The smoke fiend is kept well within bounds in Garden City; for all machinery is driven by electric energy" (p. 55). Industry and agriculture coexist in his ideal community - as do city and countryside, utopia and arcadia. Howard's sense of balance - in this case, the concentric circles of the Garden City intersected by broad boulevards - assumes that ideal forms will shape and perfect human functions: "No really sound plan of action is in more need of artificial support than is any sound system of thought" (p. 57).
+
+
