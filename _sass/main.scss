@@ -39,6 +39,10 @@ body {
   line-height: 1.46;
 }
 
+p {
+  margin: 0.5rem 0 0.5rem 0;
+}
+
 img,
 svg,
 video {
@@ -246,11 +250,6 @@ footer {
   display: flex;
   flex-direction: row;
   align-self: flex-start;
-}
-
-p {
-  margin: 0;
-  margin-bottom: 1em;
 }
 
 a {

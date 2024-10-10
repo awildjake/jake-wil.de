@@ -110,15 +110,15 @@ date: 2024-09-07
 
     {% for item in site.developments %}
         {% if item.phase == 'Completed'%}
-            marker = L.marker([{{item.geometry.[1]}}, {{item.geometry.[0]}}], {icon: greenIcon}).addTo(completedLayer);
+            marker = L.marker([{{item.geometry.[0]}}, {{item.geometry.[1]}}], {icon: greenIcon}).addTo(completedLayer);
         {% elsif item.phase == 'Approved'%}
-        marker = L.marker([{{item.geometry.[1]}}, {{item.geometry.[0]}}], {icon: blueIcon}).addTo(approvedLayer);
+        marker = L.marker([{{item.geometry.[0]}}, {{item.geometry.[1]}}], {icon: blueIcon}).addTo(approvedLayer);
         {% elsif item.phase == 'Construction'%}
-        marker = L.marker([{{item.geometry.[1]}}, {{item.geometry.[0]}}], {icon: orangeIcon}).addTo(constructionLayer);
+        marker = L.marker([{{item.geometry.[0]}}, {{item.geometry.[1]}}], {icon: orangeIcon}).addTo(constructionLayer);
         {% elsif item.phase == 'Withdrawn'%}
-        marker = L.marker([{{item.geometry.[1]}}, {{item.geometry.[0]}}], {icon: greyIcon}).addTo(withdrawnLayer);
+        marker = L.marker([{{item.geometry.[0]}}, {{item.geometry.[1]}}], {icon: greyIcon}).addTo(withdrawnLayer);
         {% elsif item.phase == 'Under Review'%}
-        marker = L.marker([{{item.geometry.[1]}}, {{item.geometry.[0]}}], {icon: yellowIcon}).addTo(underReviewLayer);
+        marker = L.marker([{{item.geometry.[0]}}, {{item.geometry.[1]}}], {icon: yellowIcon}).addTo(underReviewLayer);
         {% endif %}
         marker.bindPopup("<h4>{{item.title}}</h4> {{item.address}}");
 

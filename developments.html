@@ -9,10 +9,12 @@ title: Developments
 <table>
   <th>Units</th>
   <th>Development</th>
+  <th>Status</th>
   {% for development in developments_by_units %}
   <tr>
     <td>{{ development.units }}</td>
     <td><a href="{{ development.url }}">{{ development.title}}</a></td>
+    <td>{{ development.phase }}</td>
   </tr>
   {% endfor %}
 </table>
