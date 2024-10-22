@@ -1,4 +1,6 @@
 - name: LIST
-  link: /developments
+  link: /developments/
 - name: MAP
   link: /maps/2024-07-09-demo-leaflet/
+- name: ABOUT
+  link: /developments/about/

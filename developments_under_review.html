@@ -1,11 +1,12 @@
 ---
 layout: development_tracking
-title: Developments
-permalink: /developments/
+title: Under Review Developments
+permalink: /developments/under_review/
 ---
 {% include browse_by_phase.html %}
 
-<h1>All Developments</h1>
+<h1>Under Review</h1>
+
 {% assign developments_by_units = site.developments | sort: "units" %}
 
 <table>
@@ -13,10 +14,12 @@ permalink: /developments/
   <th>Development</th>
   <th>Status</th>
   {% for development in developments_by_units %}
+  {% if development.phase == "Under Review" %}
   <tr>
     <td>{{ development.units }}</td>
     <td><a href="{{ development.url }}">{{ development.title}}</a></td>
     <td>{{ development.phase }}</td>
   </tr>
+  {% endif %}
   {% endfor %}
 </table>
