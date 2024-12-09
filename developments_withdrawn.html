@@ -1,0 +1,25 @@
+---
+layout: development_tracking
+title: Withdrawn Developments
+permalink: /developments/withdrawn/
+---
+{% include browse_by_phase.html %}
+
+<h1>Withdrawn</h1>
+
+{% assign developments_by_units = site.developments | sort: "units" %}
+
+<table>
+  <th>Units</th>
+  <th>Development</th>
+  <th>Status</th>
+  {% for development in developments_by_units %}
+  {% if development.phase == "Withdrawn" %}
+  <tr>
+    <td>{{ development.units }}</td>
+    <td><a href="{{ development.url }}">{{ development.title}}</a></td>
+    <td>{{ development.phase }}</td>
+  </tr>
+  {% endif %}
+  {% endfor %}
+</table>
