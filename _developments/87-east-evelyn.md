@@ -5,7 +5,7 @@ address: 87 E Evelyn Ave, Mountain View, CA 94041
 developer: Affirmed Housing
 municipality: Mountain View
 units: 268
-phase: Withdrawn
+phase: Under Review
 geometry: ['37.38997897111159', '-122.06672035388978']
 ---
 # 87 East Evelyn
