@@ -1,6 +1,6 @@
 :root {
-  --bg-color: #FCFCFC;
-  --text-primary: #000000;
+  --bg-color: rgb(255, 252, 240); /*#FCFCFC*/
+  --text-primary: rgb(16, 15, 15); /* #000000*/
   --font-body: 'Libre Baskerville';
   --font-nav: 'JetBrains Mono';
   --approved-color: #2A81CB;
@@ -66,6 +66,31 @@ h1 {
 
 h2 {
   font-size: var(--step-2);
+}
+
+sup { 
+  vertical-align: top;
+  font-size: var(--step--1);
+}
+
+blockquote.info {
+  border-left: 12px solid #40cfcd;
+  background-color: #e5f8f8;
+  padding: 0.1em 1em 0.1em 0;
+  margin-left: -1em;
+  padding-left: 48px;
+  margin-inline-start: 0em;
+  margin-inline-end: 0em;
+}
+
+blockquote.error {
+  border-left: 12px solid rgb(216.56875, 83.4, 78.93125);
+  background-color: #fdf7f7;
+  padding: 0.1em 1em 0.1em 0;
+  margin-left: -1em;
+  padding-left: 48px;
+  margin-inline-start: 0em;
+  margin-inline-end: 0em;
 }
 
 /* Nav bar and header*/
