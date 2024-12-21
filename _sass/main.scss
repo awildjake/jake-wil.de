@@ -50,6 +50,11 @@ video {
   display: block;
 }
 
+iframe {
+  display: block;
+  width: 100%;
+}
+
 a {
   overflow-wrap: break-word;
   word-wrap: break-word;
