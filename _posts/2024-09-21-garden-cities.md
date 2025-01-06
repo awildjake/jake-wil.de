@@ -8,8 +8,10 @@ tags:
 In 1898, Ebenezer Howard published _To-Morrow: A Peaceful Path to Real Reform_,
 a book that he would later reprint in 1902 under the much more recognizable name of _Garden Cities of To-Morrow_.
 
-![Alt text]({{ site.baseurl }}/assets/images/garden-cities-1.jpg)
+![Alt text]({{ site.baseurl }}/assets/images/garden-cities-1.jpg) 
 {: class="popout"}
+
+<img src="{{ site.baseurl }}/assets/images/garden-cities-1.jpg">
 
 This brief excerpt from Ebenezer Howard's Garden Cities of To-Morrow provides a backdrop for city planning examples such as Greendale and Levittown. Hopefully, the opening quotation: "I will not cease from mental strife/Nor shall my sword sleep in my hand/Til we have built Jerusalem/In England's green and pleasant land" reminds you of our previous discussions of the City Upon a Hill. We read Howard because so many of our forthcoming discussions of ideal public life are informed by his optimistic, indeed infectious, narrative.
 

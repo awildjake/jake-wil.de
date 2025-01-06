@@ -1,0 +1,55 @@
+---
+title: Italy Vacation
+date: 2024-01-06
+---
+<script>
+    var map = L.map('map').setView([41.89984733701569, 12.488236908996537], 13);
+    var geojsonLayer = new L.GeoJSON.AJAX('/assets/data/lines_json.geojson', {style: style, onEachFeature: onEachFeature, }).addTo(map);
+
+    map.addControl(new L.Control.Fullscreen());
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    // Optional: Add a popup or other interactivity for each line
+    function onEachFeature(feature, layer) {
+        if (feature.properties) {
+            layer.bindPopup(`<strong>Day: ${feature.properties.Day}</strong>`);
+        }
+    }
+
+    // Array of colors for 12 days
+    const lineColors = ["#ed5151ff", "#149eceff", "#a7c636ff", "#9e559cff", "#fc921fff", "#ffde3eff", "#f789d8ff", "#b7814aff", "#3caf99ff", "#6b6bd6ff", "#b54779ff", "#7f7f7fff"];
+
+    function getColorV2(day) {
+        return lineColors[(day - 1) % lineColors.length]; // Adjust day index to align with array
+    }
+
+    // Style function to apply styles to each line
+    function style(feature) {
+        return {
+            color: getColorV2(feature.properties.Day), // Use day property to get the color
+            weight: 3, // Line thickness
+            opacity: 1,
+        };
+    }
+    
+    // Add legend to the map
+    var legend = L.control({ position: 'bottomright' });
+
+    legend.onAdd = function () {
+        var div = L.DomUtil.create('div', 'info legend');
+        div.innerHTML = '<h2 style="margin-bottom: 0.5em">Days</h2>';
+        for (let i = 0; i < lineColors.length; i++) {
+            div.innerHTML += `
+                <i style="background:${lineColors[i]}; width: 18px; height: 18px; display: inline-block; margin-right: 8px; margin-bottom: 0.5em;"></i>
+                Day ${i + 1}<br>
+            `;
+        }
+        return div;
+    };
+
+    legend.addTo(map);
+</script>
