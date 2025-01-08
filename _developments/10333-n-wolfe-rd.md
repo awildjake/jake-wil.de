@@ -31,6 +31,6 @@ geometry: ['37.32976709933505', '-122.01593556244406']
   >{{ permit[1].description }}
 {% endfor %}
 
-## In the Community
+## In the Media
 
-This project was covered by [SF YIMBY](https://sfyimby.com/2025/01/preliminary-permits-for-freeway-adjacent-housing-in-cupertino.html) on January 6, 2025.
+- ["Preliminary Permits for Freeway-Adjacent Housing in Cupertino."](https://sfyimby.com/2025/01/preliminary-permits-for-freeway-adjacent-housing-in-cupertino.html) SF YIMBY, January 6, 2025.

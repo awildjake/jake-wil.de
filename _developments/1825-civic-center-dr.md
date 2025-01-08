@@ -31,6 +31,6 @@ geometry: ['37.35600299768014', '-121.95693916980261']
   >{{ permit[1].description }}
 {% endfor %}
 
-## In the News
+## In the Meida
 
-This project was covered by [SF YIMBY](https://sfyimby.com/2025/01/permits-filed-for-1825-civic-center-drive-santa-clara.html) on Junuary 7, 2025.
+- ["Permits Filed For 1825 Civic Center Drive, Santa Clara."](https://sfyimby.com/2025/01/permits-filed-for-1825-civic-center-drive-santa-clara.html) SF YIMBY, January 7, 2025.

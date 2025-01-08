@@ -30,3 +30,7 @@ geometry: ['37.339153480676366', '-121.9943127601609']
   **{{ permit[0] }}** <span class="tag">{{ permit[1].status }}</span>
   >{{ permit[1].description }}
 {% endfor %}
+
+## In the Media
+
+- ["Revised Plans for 3521 Homestead Road in Santa Clara."](https://sfyimby.com/2024/07/revised-plans-for-3521-homestead-road-in-santa-clara.html) SF YIMBY, July 27, 2024.
