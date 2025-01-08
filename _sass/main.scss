@@ -26,6 +26,36 @@ html {
   padding: 0;
 }
 
+.tag {
+  display: span;
+  text-decoration: none;
+  font-family: var(--font-nav);
+  font-size: var(--step--1);
+  font-style: normal;
+  line-height: 1.2rem;
+  padding-right: .2rem;
+  padding-left: .3rem;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  border: .1rem solid #000;
+  box-shadow: 2px 2px #bbb;
+}
+
+.tag-a {
+  display: span;
+  text-decoration: none;
+  font-family: var(--font-nav);
+  font-style: normal;
+  line-height: 1.2rem;
+  padding-right: .2rem;
+  padding-left: .3rem;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  border: .1rem solid #000;
+  box-shadow: 2px 2px #bbb;
+  background-color: #dcd8c0;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -118,7 +148,7 @@ blockquote.error {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  font-family: 'JetBrains Mono';
+  font-family: var(--font-nav);
   border: solid #454138;
   border-width: 0.1rem 0;
   padding: 0 1rem 0 1rem;
@@ -194,7 +224,7 @@ blockquote.error {
   background-color: #f1f1f1;
 }
 
-/* .content {
+.contentv2 {
   display: flex;
   flex-direction: column;
   flex: 1 0 auto;
@@ -202,7 +232,7 @@ blockquote.error {
   margin-left: auto;
   margin-right: auto;
   order: 2;
-} */
+}
 
 .content {
   margin-bottom: 1em;
@@ -221,7 +251,7 @@ blockquote.error {
     var(--popout) [popout-end]
     var(--feature) [feature-end]
     var(--full) [full-end];
-}
+} 
 
 .content > * {
   grid-column: content;
@@ -257,7 +287,7 @@ footer {
 }
 
 .innerFooter {
-  font-family: 'JetBrains Mono';
+  font-family: var(--font-nav);
   color: #454138;
   background-color: #dcd8c0;
   padding: 1rem;
@@ -296,6 +326,15 @@ a:hover {
   background-color: #454138;
 }
 
+a[target="_blank"]::after {
+  content: ''; /* Font Awesome's external link icon */
+  background-repeat: no-repeat;
+  background-position: right 33%;
+  background-size: 0.7em;
+  padding-right: 0.75em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2.5' stroke='gray' class='w-6 h-6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25' /%3E%3C/svg%3E%0A");
+}
+
 h1 {
   height: auto;
 }
@@ -321,7 +360,7 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  font-family: 'JetBrains Mono';
+  font-family: var(--font-nav);
   font-size: var(--step--1);
   margin-top: 5px;
 }
@@ -366,20 +405,6 @@ This section contains:
   font-family: var(--font-nav);
   gap: 0.5rem;
   padding: 0;
-}
-
-.tag {
-  display: flex;
-  background-color: #dcd8c0;
-  text-decoration: none;
-
-}
-
-.tag a {
-  display: flex;
-  text-decoration: none;
-  /* top | right | bottom | left */
-  padding: 0 0.5rem 0 0.5rem;
 }
 
 #date {
@@ -436,7 +461,7 @@ ol li{
 }
 
 .header-2 {
-  font-family: 'JetBrains Mono';
+  font-family: var(--font-nav);
   font-weight: bold;
   margin: 0;
   margin-top: 1em;
