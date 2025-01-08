@@ -16,7 +16,13 @@ permalink: /developments/
   <tr>
     <td>{{ development.units }}</td>
     <td><a href="{{ development.url }}">{{ development.title}}</a></td>
-    <td>{{ development.phase }}</td>
+    {% if development.phase == 'Under Review' %}
+      <td><span class="tag bg-under-review white">{{ development.phase }}</span></td>
+    {% elsif development.phase == 'Approved'%}
+      <td><span class="tag bg-approved white">{{ development.phase }}</span></td>
+    {% elsif development.phase == 'Withdrawn'%}
+      <td><span class="tag bg-withdrawn white">{{ development.phase }}</span></td>
+    {% endif %}
   </tr>
   {% endfor %}
 </table>

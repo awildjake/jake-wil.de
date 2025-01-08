@@ -1,6 +1,6 @@
 ---
 layout: development_tracking
-title: 3521 Homestead Rd
+title: 3521 Homestead Road
 address: 3521 Homestead Rd, Santa Clara, CA 95051
 developer: Waymark
 municipality: Santa Clara

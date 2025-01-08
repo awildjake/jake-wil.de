@@ -56,6 +56,22 @@ html {
   background-color: #dcd8c0;
 }
 
+.bg-approved {
+  background-color: #2A81CB;
+}
+
+.bg-under-review {
+  background-color: #CAC428;
+}
+
+.bg-withdrawn {
+  background-color: #7B7B7B;
+}
+
+.white {
+  color: white;
+}
+
 body {
   display: flex;
   flex-direction: column;
