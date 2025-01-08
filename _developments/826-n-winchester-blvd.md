@@ -17,7 +17,7 @@ permits:
         names: Carl Wang w/ VCI Companies & Winchester Estate LLC; Tianxing Wang w/ WINCHESTER ESTATE LLC
 geometry: ['37.3304836556013', '-121.94968865318546']
 ---
-# {{ page.title }}
+## {{ page.title }}
 - Status: {{ page.phase }}
 - Units: {{ page.units }}
 - Address: {{ page.address }}
@@ -30,3 +30,7 @@ geometry: ['37.3304836556013', '-121.94968865318546']
   **{{ permit[0] }}** ({{ permit[1].status }})
   >{{ permit[1].description }}
 {% endfor %}
+
+## In the Media
+
+In December 2024, [The Mercury News](https://www.mercurynews.com/2024/12/27/san-jose-santa-clara-high-rise-development-shopping-mall/) covered a community meeting for this project.
