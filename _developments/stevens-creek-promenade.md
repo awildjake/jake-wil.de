@@ -25,13 +25,20 @@ permits:
         names: Deena Morsilli w/ HMHca and MPG STEVENS CREEK OWNER LLC
 geometry: ['37.32279911350493', '-121.9780721323479']
 ---
-# {{ page.title }}
+
+## {{ page.title }}
+
 - Status: {{ page.phase }}
 - Units: {{ page.units }}
 - Address: {{ page.address }}
 
 ## Permits
+
 {% for permit in page.permits %}
-  **{{ permit[0] }}** ({{ permit[1].status }})
+  **{{ permit[0] }}** <span class="tag">{{ permit[1].status }}</span>
   >{{ permit[1].description }}
 {% endfor %}
+
+## In the Media
+
+- ["San Jose housing project may add auto dealer building in fresh shift."](https://www.mercurynews.com/2024/12/20/san-jose-home-build-property-real-estate-store-car-economy-retail/) The Mercury News, December 21, 2024.
