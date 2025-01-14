@@ -1,0 +1,135 @@
+---
+title: Bay Area Permits
+date: 2025-01-13
+---
+<script>
+    var map = L.map('map').setView([37.797007116569, -122.35597267602547], 10);
+
+    var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    var geojsonLayer
+
+    var newStyle = {
+        color: "red",          // Line color
+        weight: 3,              // Line weight
+        fillColor: "lightred", // Fill color
+        fillOpacity: 0.5        // Fill opacity
+    };
+
+    function getColor(d) {
+        return d > 3471 ? '#147218' :
+                d > 763  ? '#429a1a' :
+                d > 357  ? '#8ec21d' :
+                d > 183  ? '#d1ea1c' :
+                d > 20   ? '#f9e81e' :
+                d > -24   ? '#feb81d' :
+                d > -63   ? '#ff8311' :
+                            '#fe3c19';
+    }
+
+
+    function style(feature) {
+        return {
+            fillColor: getColor(feature.properties.Nov_chng_1),
+            weight: 2,
+            opacity: 1,
+            color: 'white',
+            dashArray: '3',
+            fillOpacity: 0.7
+        };
+    }
+
+    function highlightFeature(e) {
+        var layer = e.target;
+
+        layer.setStyle({
+            weight: 5,
+            color: '#666',
+            dashArray: '',
+            fillOpacity: 0.7
+        });
+
+        layer.bringToFront()
+        info.update(layer.feature.properties);
+    }
+
+    function resetHighlight(e) {
+        geojsonLayer.resetStyle(e.target)
+        info.update();
+    }
+
+    function zoomToFeature(e) {
+        map.fitBounds(e.target.getBounds());
+    }
+
+    function onEachFeature(feature, layer) {
+        layer.on({
+            mouseover: highlightFeature,
+            mouseout: resetHighlight,
+            click: zoomToFeature
+        });
+    }
+
+    function roundToDecimalPlaces(num, decimalPlaces) {
+        const factor = Math.pow(10, decimalPlaces);
+        return Math.round(num * factor) / factor;
+    }
+
+    var legend = L.control({position: 'bottomright'});
+
+    legend.onAdd = function (map) {
+
+        var div = L.DomUtil.create('div', 'info legend'),
+            grades = [-100, -63, -24, 20, 183, 357, 763, 3471],
+            labels = [];
+
+        // loop through our density intervals and generate a label with a colored square for each interval
+        for (var i = 0; i < grades.length; i++) {
+            div.innerHTML +=
+                '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+                grades[i] + (grades[i + 1] ? ' &ndash; ' + grades[i + 1] + '<br>' : '+');
+        }
+
+        return div;
+    };
+
+    legend.addTo(map);
+
+    var info = L.control({position: 'bottomright'});
+
+    info.onAdd = function (map) {
+        this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+        this.update();
+        return this._div;
+    };
+
+    // method that we will use to update the control based on feature properties passed
+    info.update = function (props) {
+        this._div.innerHTML = '<h4>Bay Area Permits</h4>' +  (props ?
+            '<b>' + props.NAME + '</b><br />' + roundToDecimalPlaces(props.Nov_chng_1, 2) + '% change' + '<br><table><tr><th>2023</th><th>2024</th></tr><tr><td>' + props.Total2023_11 +'</td><td>' + props.Total2024_11 + '</td></tr></table>'
+            : 'Hover over a city');
+    };
+
+    info.addTo(map);
+
+    geojsonLayer = new L.GeoJSON.AJAX("/assets/data/bay_area_permits_2024.geojson", {
+        style: style,
+        onEachFeature: onEachFeature
+    }).addTo(map);
+
+    // Create a custom control for the title
+    var title = L.control({ position: 'bottomleft' }); // Use 'topcenter' or other positions like 'topleft'
+
+    title.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'map-title');
+        div.innerHTML = '<h2>Bay Area Permits Map</h2><p>Choropleth map visualizing percent change in housing units permitted between 2023 and 2024 for 101 Bay Area cities.</p>'; // Add your title here
+        return div;
+    };
+
+    // Add the title control to the map
+    title.addTo(map);
+
+</script>

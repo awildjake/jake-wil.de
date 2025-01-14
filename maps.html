@@ -5,7 +5,7 @@ title: Maps
 <h1>Maps</h1>
 
 <ul class="post-list">
-  {% for map in site.maps %}
+    {% for map in site.maps %}
         <li class="post">
             <b><a href="{{ map.url }}">{{ map.title }}</a></b>
             <div class="post-info">» {{ map.date | date: "%-d %B %Y"}}</div>
