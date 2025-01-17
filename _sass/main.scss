@@ -75,9 +75,10 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100%;
+  min-height: 100vh;
   font-family: var(--main-font);
   font-size: var(--step-0);
+  font-weight: 400;
   color: var(--text-primary);
   background-color: var(--bg-color);
   margin: 0;
@@ -94,6 +95,7 @@ svg,
 video {
   max-width: 100%;
   display: block;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, .1);
 }
 
 iframe {
@@ -259,7 +261,6 @@ blockquote.error {
   --content: min(50ch, 100% - var(--gap) * 2);
   --popout: minmax(0, 2rem);
   --feature: minmax(0, 5rem);
-  order: 2;
   display: grid;
   grid-template-columns:
     [full-start] var(--full)
@@ -287,6 +288,26 @@ blockquote.error {
   grid-column: full;
 }
 
+.order-2 {
+  order: 2;
+}
+
+p {
+  margin: 6px 0;
+}
+
+p + p {
+  margin: 24px 0 6px 0;
+}
+
+p a {
+  /* text-decoration: underline */
+  color: #008AFF;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-weight: 800;
+}
 
 footer {
   background-color: #d1cdb7;
