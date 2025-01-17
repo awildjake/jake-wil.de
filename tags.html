@@ -2,6 +2,7 @@
 layout: default
 title: Tags
 ---
+<article class="content">
 {% for tag in site.tags %}
   <h3><a id="{{ tag[0 ]}}" href="/tags.html#{{ tag[0] }}">{{ tag[0] }}</a></h3>
   <ul>
@@ -10,3 +11,4 @@ title: Tags
     {% endfor %}
   </ul>
 {% endfor %}
+</article>
