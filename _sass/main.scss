@@ -54,6 +54,7 @@ html {
   border: .1rem solid #000;
   box-shadow: 2px 2px #bbb;
   background-color: #dcd8c0;
+  color: #000;
 }
 
 .bg-approved {
@@ -270,7 +271,7 @@ blockquote.error {
     var(--popout) [popout-end]
     var(--feature) [feature-end]
     var(--full) [full-end];
-} 
+}
 
 .content > * {
   grid-column: content;
@@ -300,9 +301,9 @@ p + p {
   margin: 24px 0 6px 0;
 }
 
-p a, p li {
+p a, ul a, ol a {
   /* text-decoration: underline */
-  color: #008AFF;
+  color: #518abb;
 }
 
 h1,h2,h3,h4,h5,h6 {
