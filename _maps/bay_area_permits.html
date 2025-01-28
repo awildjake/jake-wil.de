@@ -103,9 +103,14 @@ date: 2025-01-27
 
     
     info.update = function (props) {
-        this._div.innerHTML = '<h4>Bay Area Permits</h4>' +  (props ?
-            '<b>' + props.NAME + '</b><br />' + roundToDecimalPlaces(props.Chng_2023_2024, 2) + '% change' + '<br><table><tr><th>2023 Units</th><th>2024 Units</th></tr><tr><td>' + props.Dec_2023_Total +'</td><td>' + props.Dec_2024_Total + '</td></tr></table>'
-            : '<em>Hover over a city</em>');
+        this._div.innerHTML = '<h4>Bay Area Permits</h4>' + 
+            (props ? 
+                '<b>' + props.NAME + '</b><br />' + 
+                (props.Chng_2023_2024 > 0 ? '+' : '') + 
+                roundToDecimalPlaces(props.Chng_2023_2024, 2) + '% change' + 
+                '<br><table><tr><th>2023 Units</th><th>2024 Units</th></tr>' +
+                '<tr><td>' + props.Dec_2023_Total + '</td><td>' + props.Dec_2024_Total + '</td></tr></table>'
+                : '<em>Hover over a city</em>');
     };
 
     info.addTo(map);
