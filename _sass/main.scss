@@ -1,5 +1,5 @@
 :root {
-  --bg-color: rgb(255, 252, 240); /*#FCFCFC*/
+  --bg-color: #ffffff; /*#FCFCFC rgb(255, 252, 240)*/ 
   --text-primary: rgb(16, 15, 15); /* #000000*/
   --font-body: 'Libre Baskerville';
   --font-nav: 'JetBrains Mono';
@@ -19,11 +19,24 @@
   --step-4: clamp(2.0736rem, 1.6803rem + 1.9665vw, 3.2043rem);
   --step-5: clamp(2.4883rem, 1.9606rem + 2.6385vw, 4.0054rem);
 }
-
 html {
   height: 100%;
+  line-height: 1.5;
   margin: 0;
   padding: 0;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: var(--main-font);
+  font-size: var(--step-0);
+  font-weight: 400;
+  color: var(--text-primary);
+  background-color: var(--bg-color);
+  margin: 0;
+  padding: 0;
+  line-height: 1.46;
 }
 
 .tag {
@@ -104,12 +117,7 @@ iframe {
   width: 100%;
 }
 
-a {
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  color: #000000;
-  text-decoration: underline;
-}
+
 
 address {
   overflow-wrap: break-word;
@@ -298,7 +306,7 @@ p {
 }
 
 p + p {
-  margin: 24px 0 6px 0;
+  margin: 1rem 0 0 0;
 }
 
 p a, ul a, ol a {
@@ -355,10 +363,24 @@ footer {
   align-self: flex-start;
 }
 
+/* Links */
+a {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  color: #000000;
+  text-decoration: underline;
+}
 a:hover {
   text-decoration: none;
   color: #fffff5;
   background-color: #454138;
+}
+a[href^="http"] {
+  background-image: url('/assets/images/up-right-from-square-solid.svg');
+  background-position: right 33%;
+  background-size: 1em;
+  background-repeat: no-repeat;
+  padding-right: 1em; /* Adjust padding for the icon space */
 }
 
 h1 {
@@ -434,7 +456,6 @@ This section contains:
 }
 
 #date {
-  font-size: var(--step--1);
   margin-bottom: 0.2rem;
 }
 
