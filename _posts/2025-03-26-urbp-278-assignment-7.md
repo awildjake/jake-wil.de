@@ -16,4 +16,4 @@ Chapter 3 provides details regarding the existing conditions (as of 2007) of the
 
 ---
 
-[^1]: U.S. Census Bureau, U.S. Department of Commerce. "ACS Demographic and Housing Estimates." American Community Survey, ACS 5-Year Estimates Data Profiles, Table DP05, 2023, https://data.census.gov/table/ACSDP5Y2023.DP05?q=Los+Angeles+city,+California. Accessed on March 24, 2025.
+[^1]: U.S. Census Bureau, U.S. Department of Commerce. "ACS Demographic and Housing Estimates." American Community Survey, ACS 5-Year Estimates Data Profiles, Table DP05, 2023, [https://data.census.gov/table/ACSDP5Y2023.DP05?q=Los+Angeles+city,+California]. Accessed on March 24, 2025.

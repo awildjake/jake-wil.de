@@ -2,7 +2,7 @@
 title: Bay Area Racial Composition Map
 date: 2025-03-26
 tags:
-    - segregation
+    - map
 published: True
 ---
 
